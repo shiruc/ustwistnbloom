@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StudioDrive — AI Workspace</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="logo">SD</span>
+          <div>
+            <p class="brand-title">StudioDrive</p>
+            <p class="brand-subtitle">AI Workspace</p>
+          </div>
+        </div>
+        <nav class="nav">
+          <button class="nav-item active" data-section="overview">Overview</button>
+          <button class="nav-item" data-section="create">Create</button>
+          <button class="nav-item" data-section="models">Models</button>
+          <button class="nav-item" data-section="analytics">Analytics</button>
+          <button class="nav-item" data-section="settings">Settings</button>
+        </nav>
+        <div class="sidebar-footer">
+          <button id="themeToggle" class="ghost">Toggle theme</button>
+          <p class="helper">Syncs with GitHub Pages</p>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <h1>Build, test, and ship AI workflows</h1>
+            <p class="muted">
+              A single-page experience designed to mirror modern AI studio apps with
+              dashboards, models, and live previews.
+            </p>
+          </div>
+          <div class="topbar-actions">
+            <button class="ghost">Share</button>
+            <button class="primary">Deploy</button>
+          </div>
+        </header>
+
+        <section id="overview" class="panel active">
+          <div class="grid two">
+            <div class="card">
+              <h2>Quick start</h2>
+              <p class="muted">
+                Upload reference files, draft prompts, and see real-time evaluation
+                scores.
+              </p>
+              <div class="upload">
+                <input id="fileInput" type="file" multiple />
+                <label for="fileInput">
+                  Drag & drop or click to upload files
+                </label>
+                <ul id="fileList" class="file-list"></ul>
+              </div>
+            </div>
+            <div class="card">
+              <h2>Live preview</h2>
+              <div class="preview">
+                <div class="preview-header">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <p>Preview pane</p>
+                </div>
+                <div class="preview-body">
+                  <p class="muted">No preview yet. Generate a draft to populate.</p>
+                  <button class="ghost" id="generatePreview">Generate preview</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid three">
+            <div class="card stat">
+              <p class="label">Active projects</p>
+              <h3>12</h3>
+              <p class="muted">3 in review</p>
+            </div>
+            <div class="card stat">
+              <p class="label">Tokens used</p>
+              <h3>2.4M</h3>
+              <p class="muted">+12% this week</p>
+            </div>
+            <div class="card stat">
+              <p class="label">Latency</p>
+              <h3>420 ms</h3>
+              <p class="muted">Global average</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="create" class="panel">
+          <div class="grid two">
+            <div class="card">
+              <h2>Prompt studio</h2>
+              <p class="muted">Compose prompts with reusable blocks and templates.</p>
+              <textarea id="promptInput" placeholder="Write a system prompt..."></textarea>
+              <div class="actions">
+                <button class="ghost" id="savePrompt">Save draft</button>
+                <button class="primary" id="runPrompt">Run test</button>
+              </div>
+            </div>
+            <div class="card">
+              <h2>Response playground</h2>
+              <div class="chat" id="chatWindow"></div>
+              <div class="chat-input">
+                <input id="chatInput" type="text" placeholder="Ask the model..." />
+                <button class="primary" id="sendChat">Send</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="models" class="panel">
+          <div class="card">
+            <div class="card-header">
+              <h2>Model lineup</h2>
+              <div class="tabs">
+                <button class="tab active" data-model="alpha">Alpha</button>
+                <button class="tab" data-model="beta">Beta</button>
+                <button class="tab" data-model="gamma">Gamma</button>
+              </div>
+            </div>
+            <div id="modelDetails" class="model-details">
+              <h3>Alpha</h3>
+              <p class="muted">
+                Best for creative drafts, ideation, and summarization.
+              </p>
+              <div class="pill-row">
+                <span class="pill">128k context</span>
+                <span class="pill">Text + vision</span>
+                <span class="pill">Low latency</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="analytics" class="panel">
+          <div class="grid two">
+            <div class="card">
+              <h2>Usage breakdown</h2>
+              <div class="chart">
+                <div class="bar" style="height: 70%"><span>Mon</span></div>
+                <div class="bar" style="height: 60%"><span>Tue</span></div>
+                <div class="bar" style="height: 80%"><span>Wed</span></div>
+                <div class="bar" style="height: 55%"><span>Thu</span></div>
+                <div class="bar" style="height: 90%"><span>Fri</span></div>
+              </div>
+            </div>
+            <div class="card">
+              <h2>System health</h2>
+              <ul class="status-list">
+                <li><span class="status ok"></span> API uptime 99.98%</li>
+                <li><span class="status ok"></span> 12 models available</li>
+                <li><span class="status warn"></span> 2 queues nearing limit</li>
+                <li><span class="status ok"></span> 24 regions online</li>
+              </ul>
+              <button class="ghost">View status page</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="settings" class="panel">
+          <div class="card">
+            <h2>Workspace settings</h2>
+            <div class="setting-row">
+              <div>
+                <p class="label">Project name</p>
+                <p class="muted">Rename your AI workspace.</p>
+              </div>
+              <input type="text" value="StudioDrive" />
+            </div>
+            <div class="setting-row">
+              <div>
+                <p class="label">Notifications</p>
+                <p class="muted">Receive alerts on runs and deployments.</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-row">
+              <div>
+                <p class="label">API key</p>
+                <p class="muted">Copy your public key for integrations.</p>
+              </div>
+              <button class="ghost" id="copyKey">Copy key</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
